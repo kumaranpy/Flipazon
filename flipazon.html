@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flipazon</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f4f4;
+    }
+
+    nav{
+        background: #1a73e8;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+    nav a{
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    section{
+        display: none;
+        padding: 30px;
+    }
+    .active{
+        display: block;
+    }
+
+    .card{
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+        box-shadow: 0 0 5px gray;
+    }
+
+    input, textarea{
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid gray;
+    }
+
+    button{
+        padding: 10px 15px;
+        background: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .product-box{
+        display: inline-block;
+        background: white;
+        width: 200px;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 5px gray;
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <a onclick="show('home')">Home</a>
+    <a onclick="show('products')">Product Items</a>
+    <a onclick="show('login')">Login</a>
+    <a onclick="show('orders')">Orders</a>
+    <a onclick="show('customer')">Customer Care</a>
+    <a onclick="show('about')">About Us</a>
+    <a onclick="show('contact')">Contact Us</a>
+</nav>
+
+
+<section id="home" class="active">
+    <h1>Welcome to Mini E-Commerce Portal</h1>
+    <p>Your simple online shopping experience.</p>
+</section>
+
+<section id="products">
+    <h2>Products</h2>
+
+    <div class="product-box">
+        <h3>Smartphone</h3>
+        <p>₹10,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+        <h3>Running Shoes</h3>
+        <p>₹2,199</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+        <h3>Airpods</h3>
+        <p>₹1,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+        <h3>Headphones</h3>
+        <p>₹799</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-box">
+        <h3>Dress</h3>
+        <p>₹999</p>
+        <button>Add to Cart</button>
+    </div>
+
+</section>
+
+<section id="login">
+    <h2>Login</h2>
+    <div class="card">
+        <label>Email</label>
+        <input type="text" id="log_email">
+
+        <label>Password</label>
+        <input type="password" id="log_pass">
+
+        <button onclick="loginUser()">Login</button>
+        <p id="log_msg"></p>
+    </div>
+</section>
+
+<section id="orders">
+    <h2>Your Orders</h2>
+    <div class="card">No orders placed yet.</div>
+</section>
+
+<section id="customer">
+    <h2>Customer Care</h2>
+    <div class="card">Email us: support@shop.com</div>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>This is a small demo E-Commerce website built using HTML, CSS & JavaScript only.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: help@ecommerce.com</p>
+    <p>Phone: +91 9876543210</p>
+</section>
+
+<script>
+
+function show(id){
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function loginUser(){
+    let email = document.getElementById("log_email").value;
+    let pass = document.getElementById("log_pass").value;
+
+    if(email == "" || pass == ""){
+        document.getElementById("log_msg").innerHTML = "❌ Please fill all fields!";
+        document.getElementById("log_msg").style.color = "red";
+    }
+    else{
+        document.getElementById("log_msg").innerHTML = "✔ Login Successful!";
+        document.getElementById("log_msg").style.color = "green";
+    }
+}
+</script>
+
+</body>
+</html>
